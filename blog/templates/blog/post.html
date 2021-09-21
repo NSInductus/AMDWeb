@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Blog{% endblock title %}
+
+{% load static %}
+{% block background %}{% static 'core/img/blog-bg.jpeg' %}{% endblock background %}
+
+{% block headers %}
+    <span class="subheading">Página Web Personal</span>
+    <br/>
+    <h1>ÁNGEL MURCIA DÍAZ</h1>
+    <h4>INGENIERO INFORMÁTICO</h4>
+{% endblock headers %}
+
+{% block content %}
+    <section class="page-section cta">
+    <div class="container">
+        <div class="row">
+        <div class="col-xl-9 mx-auto">
+            <div class="cta-innerv text-center rounded">
+            <h2 class="section-heading mb-5">
+                <span class="section-heading-lower">{{post.title}}</span>
+            </h2>
+            {% if post.image.url != "" %}
+                <p class="mb-0">
+                    <img class="mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{post.image.url}}" alt="">
+                </p>
+            {% endif %}
+            <p class="mb-0 mbt">{{post.content|safe}}</p>
+            <p class="mb-0 mbt">
+                <span class="section-heading-under"> {% if post.created != post.updated %}Actualizado el {{post.updated}} {% else %} Publicado el {{post.created}} {% endif %} por <em><b>{{post.author}}</b>.</em>
+                    <p>{% if post.categories.all|length == 1 %}Categoría: {% for category in post.categories.all %} <em><a href={% url 'blog:post_list_category' category.id %} class="link">{{category.name}}</a></em>{% endfor %} {% else %}Categorías: {% for category in post.categories.all %}
+                    <em><a href={% url 'blog:post_list_category' category.id %} class="link">{{category.name}}</a>{% if not forloop.last %}, {% endif %}</em>
+                    {% endfor %} {% endif %}</p>
+                </span>
+            </p>
+            <p class="btn btn-dark btn-block py-3 mb-3 mt-4 button-project"><a href="{% url 'blog:post_list' %}">Volver al blog</a></p> 
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+{% endblock content %}

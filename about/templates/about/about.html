@@ -1,0 +1,83 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Sobre mí{% endblock title %}
+
+{% load static %}
+{% block background %}{% static 'core/img/about-bg.jpg' %}{% endblock background %}
+
+{% block headers %}
+    <span class="subheading">Página Web Personal</span>
+    <br/>
+    <h1>ÁNGEL MURCIA DÍAZ</h1>
+    <h4>INGENIERO INFORMÁTICO</h4>
+{% endblock headers %}
+
+{% block content %}
+    <div class="row">  
+        <div class="col-lg-3 col-md-4 offset-lg-1">
+            <img id="me" class="img-fluid avatar" src="{% static 'core/img/avatar.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading">Sobre mí</h2>  
+            <p>Soy Ángel Murcia Díaz, actualmente vivo en un pueblo de Córdoba, me puedo describir como alguien dinámico, proactivo, dispuesto siempre a aprender y con aficiones variadas, aunque si tuviera que destacar algunas serían: los videojuegos, los deportes y las curiosidades de las nuevas tecnologías.</p>
+            <p>Desde pequeño soy un apasionado de la informática, en parte gracias a mi padre, por lo que empecé mis estudios en la informática mucho antes de comenzar con el grado, por ejemplo, aprendí conocimientos básicos de programación, diseñé y realicé páginas web e incluso pequeños "programas" de forma sencilla.</p>
+            <p>Con la edad he ido adquiriendo aún más interés por todo lo relacionado con este "mundo" y estos últimos años la universidad me ha servido para ampliar notablemente mis conocimientos. Ahora estoy interesado en entrar al mundo laboral para poder seguir formándome y aprendiendo.</p>
+            <p>Pienso que la clave del éxito reside en que te guste tu trabajo, por eso sé con seguridad que no estuve equivocado al escoger estudiar ingeniería informática para ejercer algún día esta profesión.</p>
+            <p>Ahora estoy interesado en entrar al mundo laboral para poder seguir aprendiendo y formándome.</p>
+            <p>Soy una persona curiosa, lo que me ha llevado a ir siempre un paso más allá, si explicaban algo en clase me encargaba de profundizar más en el tema, esto me ha empujado a investigar por mí mismo.</p>
+            <p>Finalmente, destaco que me encanta pasar tiempo con mis amigos y como conocer a nuevas personas, por lo que considero el trabajo en equipo fundamental en cualquier ámbito de la vida.</p>
+        </div>
+    </div>
+    <div class="row">  
+        <div class="col-lg-3 col-md-4 offset-lg-1"></div>
+        <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading">Educación</h2> 
+        </div>
+    </div>
+    {% for course in course_list %}
+        <div class="row project">  
+        {% if course.image.url != "" %}	
+            <div class="col-lg-3 col-md-4 offset-lg-1">
+                    <img class="img-fluid" src="{{course.image.url}}"alt="">
+            </div>
+        {% endif %}
+        <div class="col-lg-7 col-md-8">
+            <h5>{{course.institution}}</h5>     
+            <p>{{course.description}}</p>
+            {% if course.extra != None %}
+                <p class="extra">{{course.extra}}</p>
+            {% endif %}
+            <p>{{course.start_date|date:'Y'}} - {{course.finish_date|date:'Y'}}</p>
+        </div>
+        </div>
+    {% endfor %}
+
+    <div class="row">  
+        <div class="col-lg-3 col-md-4 offset-lg-1"></div>
+        <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading">Experiencia</h2> 
+        </div>
+    </div>
+    {% for job in job_list %}
+        <div class="row project">  
+        {% if job.image.url != "" %}	
+            <div class="col-lg-3 col-md-4 offset-lg-1">
+                    <img class="img-fluid" src="{{job.image.url}}"alt="">
+            </div>
+        {% endif %}
+        <div class="col-lg-7 col-md-8">
+            <h5>{{job.institution}}</h5>   
+            <p>{{job.description}}</p>
+            {% if job.extra != None %}
+                <p class="extra">{{job.extra}}</p>
+            {% endif %}
+            {% if job.finish_date != None %}
+                <p>{{job.start_date|date:'m/Y'}} - {{job.finish_date|date:'m/Y'}}</p>
+            {% else %}
+                <p>{{job.start_date|date:'m/Y'}} - actualidad</p>
+            {% endif %}
+        </div>
+        </div>
+    {% endfor %}
+            
+{% endblock content %}

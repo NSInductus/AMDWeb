@@ -1,0 +1,78 @@
+.clearfix{
+    float:none;
+    clear:both;
+}
+
+.home ul li{
+    list-style: none;
+    display: inline-block;
+}
+
+#button-contact:hover{ 
+    cursor: pointer; 
+    background-color: #2596be;
+} 
+
+.button-project:hover{ 
+    cursor: pointer; 
+    background-color: #2596be;
+    
+} 
+
+.button-project > a{
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    text-decoration-line: none;
+    color: white;
+}
+
+#button-cv:hover{ 
+    cursor: pointer; 
+    background-color: #2596be;
+    
+} 
+
+#button-cv > a{
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    text-decoration-line: none;
+    color: white;
+}
+
+
+#message-contact-ok{
+    color:rgb(1, 133, 41);
+}
+
+.page-link {
+
+    color: black;
+}
+
+.page-item.active .page-link {
+
+    background-color: black;
+    border-color: black;
+}
+
+.page-link:hover {
+
+    color: white;
+    background-color: #2596be;
+}
+
+ul.errorlist {
+    color: rgb(182, 11, 11);
+}
+
+#me{
+    border-radius: 36%;
+    margin-top: 35px;
+}
+
+.uni{
+    width: 30%;
+    height: 30%;
+}

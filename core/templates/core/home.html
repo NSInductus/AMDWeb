@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% load static %}
+{% block background %}{% static 'core/img/home-bg.jpg' %}{% endblock background %}
+
+{% block headers %}
+    <span class="subheading">Página Web Personal</span>
+    <br/>
+    <h1>ÁNGEL MURCIA DÍAZ</h1>
+    <h4>INGENIERO INFORMÁTICO</h4> 
+{% endblock headers %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-1"></div>
+    <div class="col-md-auto">
+        <p>Página web personal de Ángel Murcia Díaz, Ingeniero informático.</p>
+        <p>Esta página web se ha creado con los siguientes objetivos:</p>
+        <ul>
+            <li>Dar información acerca de mí.</li>
+            <li>Proporcionar un enlace para descargar mi CV actualizado.</li>
+            <li>Utilizarla como portafolio exponiendo mis proyectos más interesantes.</li>
+            <li>Utilizarla como blog donde publicar mis ideas.</li>
+            <li>Medio de comunicación directo.</li>
+        </ul>
+        <h2 class="section-heading">Tecnología Utilizada</h2> 
+        <ul>
+            <li>Para el desarrollo web se ha utilizado el framework <strong>Django</strong>.</li>
+            <li>Para el diseño se ha utilizado el framework <strong>Bootstrap</strong>.</li>
+            <li>Como base de datos se ha utilizado <strong>SQLite</strong>.</li>
+        </ul>
+        <h2 class="section-heading">Licencia</h2> 
+        <p class="mb-4">El proyecto esta bajo la Licencia GNU GLP v3.0.</p>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+<hr>
+{% endblock content %}

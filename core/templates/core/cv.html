@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% load static %}
+{% block background %}{% static 'core/img/cv-bg.jpg' %}{% endblock background %}
+
+{% block headers %}
+    <span class="subheading">Página Web Personal</span>
+    <br/>
+    <h1>ÁNGEL MURCIA DÍAZ</h1>
+    <h4>INGENIERO INFORMÁTICO</h4> 
+{% endblock headers %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-2"></div>
+    <div class="col-md-auto">
+      <p class="text-center">Mi curriculum actualizado se puede descargar en el siguiente enlace: </p>
+      <p id="button-cv" class="btn btn-dark btn-block py-2 mb-4 mt-3"><a class="nav-link" href="">[CV]</a></p>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+{% endblock content %}
